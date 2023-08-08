@@ -1,0 +1,68 @@
+import mongoose from "mongoose";
+
+const UdyamCertificateSchema = new mongoose.Schema({
+  service: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "services",
+  },
+  client: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "clients",
+  },
+  employee: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "employee",
+  },
+  // LoanAmount: {
+  //   type: Number,
+  // },
+  AdharCard: {
+    type: String,
+  },
+  PanCard: {
+    type: String,
+  },
+  BankAccountDetails: {
+    type: String,
+  },
+  BusinessAdress: {
+    type: String,
+  },
+  DetailsOfBusinessActivites: {
+    type: String,
+  },
+  InformationOfTheInvestment: {
+    type: String,
+  },
+  InformationOfTheTurnOver: {
+    type: String,
+  },
+  DuplicateBillOfSale: {
+    type: String,
+  },
+  isPending: {
+    type: Boolean,
+    default: true,
+  },
+  isFailed: {
+    type: Boolean,
+    default: false,
+  },
+  isSuccess: {
+    type: Boolean,
+    default: false,
+  },
+  L_ID: {
+    type: Number,
+    required: true,
+  }
+},
+{ timestamps: true }
+);
+
+const UdyamCertificateModel = mongoose.model(
+  "UdyamCertification",
+  UdyamCertificateSchema
+);
+
+export default UdyamCertificateModel;
