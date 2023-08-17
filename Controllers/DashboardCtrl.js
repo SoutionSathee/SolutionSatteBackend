@@ -739,98 +739,129 @@ export const totalMISreport = async (req, res) => {
     const foodLisenceLoanLeadCount = await FoodLisenceModel.find({}).countDocuments();
 
 
-    let hLLA = await HomeLoanModel.find({})
-      let homeLoanLeadAmout = 0
-      for (let index = 0; index < hLLA.length; index++) {
-        homeLoanLeadAmout = homeLoanLeadAmout + hLLA[index].LoanAmount;
+    let hLLA = await HomeLoanModel.find({});
+    let homeLoanLeadAmout = 0n;
+    for (let index = 0; index < hLLA.length; index++) {
+      if (typeof hLLA[index].LoanAmount !== "undefined") {
+        homeLoanLeadAmout += BigInt(hLLA[index].LoanAmount);
       }
-    let BLLA = await BusinessLoanModel.find({})
-    let businessLoanLeadAmout = 0
+    }
+    let BLLA = await BusinessLoanModel.find({});
+    let businessLoanLeadAmout = 0n;
     for (let index = 0; index < BLLA.length; index++) {
-      businessLoanLeadAmout = businessLoanLeadAmout + BLLA[index].LoanAmount;
+      if (typeof BLLA[index].LoanAmount !== "undefined") {
+        businessLoanLeadAmout += BigInt(BLLA[index].LoanAmount);
+      }
     }
 
-    let PLLA = await PersonalLoanModel.find({})
-    let personalLoanLeadAmout = 0
+    let PLLA = await PersonalLoanModel.find({});
+    let personalLoanLeadAmout = 0n;
     for (let index = 0; index < PLLA.length; index++) {
-      personalLoanLeadAmout = personalLoanLeadAmout + PLLA[index].LoanAmount;
+      if (typeof PLLA[index].LoanAmount !== "undefined") {
+        personalLoanLeadAmout += BigInt(PLLA[index].LoanAmount);
+      }
     }
 
-    let MLLA = await MortgageLoanModel.find({})
-    let mortgageLoanLeadAmout = 0
+    let MLLA = await MortgageLoanModel.find({});
+    let mortgageLoanLeadAmout = 0n;
     for (let index = 0; index < MLLA.length; index++) {
-      mortgageLoanLeadAmout = mortgageLoanLeadAmout + MLLA[index].LoanAmount;
+      if (typeof MLLA[index].LoanAmount !== "undefined") {
+        mortgageLoanLeadAmout += BigInt(MLLA[index].LoanAmount);
+      }
     }
 
-    let GLLA = await GoldLoanModel.find({})
-    let goldLoanLeadAmout = 0
+    let GLLA = await GoldLoanModel.find({});
+    let goldLoanLeadAmout = 0n;
     for (let index = 0; index < GLLA.length; index++) {
-      goldLoanLeadAmout = goldLoanLeadAmout + GLLA[index].LoanAmount;
+      if (typeof GLLA[index].LoanAmount !== "undefined") {
+        goldLoanLeadAmout += BigInt(GLLA[index].LoanAmount);
+      }
     }
 
-    let CLLA = await CreditCardModel.find({})
-    let creditLoanLeadAmout = 0
+    let CLLA = await CreditCardModel.find({});
+    let creditLoanLeadAmout = 0n;
     for (let index = 0; index < CLLA.length; index++) {
-      creditLoanLeadAmout = creditLoanLeadAmout + CLLA[index].LoanAmount;
+      if (typeof CLLA[index]?.LoanAmount !== "undefined") {
+        creditLoanLeadAmout += BigInt(CLLA[index].LoanAmount);
+      }
     }
 
-    let CLA = await CarLoanModel.find({})
-    let carLoanLeadAmout = 0
+    let CLA = await CarLoanModel.find({});
+    let carLoanLeadAmout = 0n;
     for (let index = 0; index < CLA.length; index++) {
-      carLoanLeadAmout = carLoanLeadAmout + CLA[index].LoanAmount;
+      if (typeof CLA[index].LoanAmount !== "undefined") {
+        carLoanLeadAmout += BigInt(CLA[index].LoanAmount);
+      }
     }
-    let GLA = await GSTLoanModel.find({})
-    let gstLoanLeadAmout = 0
+    let GLA = await GSTLoanModel.find({});
+    let gstLoanLeadAmout = 0n;
     for (let index = 0; index < GLA.length; index++) {
-      gstLoanLeadAmout = gstLoanLeadAmout + GLA[index].LoanAmount;
+      if (typeof GLA[index]?.LoanAmount !== "undefined") {
+        gstLoanLeadAmout += BigInt(GLA[index].LoanAmount);
+      }
     }
 
-    let PLA = await PassportModel.find({})
-    let passportLoanLeadAmout = 0
+    let PLA = await PassportModel.find({});
+    let passportLoanLeadAmout = 0n;
     for (let index = 0; index < PLLA.length; index++) {
-      passportLoanLeadAmout = passportLoanLeadAmout + PLLA[index].LoanAmount;
+      if (typeof PLA[index]?.LoanAmount !== "undefined") {
+        passportLoanLeadAmout += BigInt(PLA[index].LoanAmount);
+      }
     }
-    let NCPA = await NewCorrectionPanApplicationModel.find({})
-    let newCorrectionPanApplication = 0
+    let NCPA = await NewCorrectionPanApplicationModel.find({});
+    let newCorrectionPanApplication = 0n;
     for (let index = 0; index < NCPA.length; index++) {
-      newCorrectionPanApplication = newCorrectionPanApplication + NCPA[index].LoanAmount;
+      if (typeof NCPA[index]?.LoanAmount !== "undefined") {
+        newCorrectionPanApplication += BigInt(NCPA[index].LoanAmount);
+      }
     }
 
-    let SALA = await ShopActModel.find({})
-    let shopActLeadAmout = 0
+    let SALA = await ShopActModel.find({});
+    let shopActLeadAmout = 0n;
     for (let index = 0; index < SALA.length; index++) {
-      shopActLeadAmout = shopActLeadAmout + SALA[index].LoanAmount;
+      if (typeof SALA[index]?.LoanAmount !== "undefined") {
+        shopActLeadAmout += BigInt(SALA[index].LoanAmount);
+      }
     }
-    let UCLA = await UdyamCertificateModel.find({})
-    let udyamCertificateLoanLeadAmout = 0
+    let UCLA = await UdyamCertificateModel.find({});
+    let udyamCertificateLoanLeadAmout = 0n;
     for (let index = 0; index < UCLA.length; index++) {
-      udyamCertificateLoanLeadAmout = udyamCertificateLoanLeadAmout + UCLA[index].LoanAmount;
+      if (typeof UCLA[index]?.LoanAmount !== "undefined") {
+        udyamCertificateLoanLeadAmout += BigInt(UCLA[index].LoanAmount);
+      }
     }
-    let FLLA = await FoodLisenceModel.find({})
-    let foodLisenceLoanLeadAmout = 0
+    let FLLA = await FoodLisenceModel.find({});
+    let foodLisenceLoanLeadAmout = 0n;
     for (let index = 0; index < FLLA.length; index++) {
-      foodLisenceLoanLeadAmout = foodLisenceLoanLeadAmout + FLLA[index].LoanAmount;
+      if (typeof FLLA[index]?.LoanAmount !== "undefined") {
+        foodLisenceLoanLeadAmout += BigInt(FLLA[index].LoanAmount);
+      }
     }
-    
 
     return res.status(202).json({
       status: true,
       message: "successfully fetched lead count for particular employee",
       data: {
-        homeLoan : { homeLoanLeadCount, homeLoanLeadAmout },
-        businessLoan : { businessLoanLeadCount, businessLoanLeadAmout },
-        personalLoan : { personalLoanLeadCount, personalLoanLeadAmout },
-        mortgageLoan : { mortgageLoanLeadCount, mortgageLoanLeadAmout },
-        creditLoan : { creditLoanLeadCount, creditLoanLeadAmout },
-        goldLoan : { goldLoanLeadCount, goldLoanLeadAmout },
-        carLoan : { carLoanLeadCount, carLoanLeadAmout },
-        gstLoan : { gstLoanLeadCount, gstLoanLeadAmout },
-        passportLoan : { passportLoanLeadCount, passportLoanLeadAmout },
-        newCorrectionPanApplica : { newCorrectionPanApplicationCount, newCorrectionPanApplication },
-        shopAct : { shopActLeadCount, shopActLeadAmout },
-        udyamCertificateLoan : { udyamCertificateLoanLeadCount, udyamCertificateLoanLeadAmout },
-        foodLisenceLoan : { foodLisenceLoanLeadCount, foodLisenceLoanLeadAmout },
-      }
+        homeLoan: { homeLoanLeadCount, homeLoanLeadAmout: homeLoanLeadAmout.toString() },
+        businessLoan: { businessLoanLeadCount, businessLoanLeadAmout: businessLoanLeadAmout.toString() },
+        personalLoan: { personalLoanLeadCount, personalLoanLeadAmout: personalLoanLeadAmout.toString() },
+        mortgageLoan: { mortgageLoanLeadCount, mortgageLoanLeadAmout: mortgageLoanLeadAmout.toString() },
+        creditLoan: { creditLoanLeadCount, creditLoanLeadAmout: creditLoanLeadAmout.toString() },
+        goldLoan: { goldLoanLeadCount, goldLoanLeadAmout: goldLoanLeadAmout.toString() },
+        carLoan: { carLoanLeadCount, carLoanLeadAmout: carLoanLeadAmout.toString() },
+        gstLoan: { gstLoanLeadCount, gstLoanLeadAmout: gstLoanLeadAmout.toString() },
+        passportLoan: { passportLoanLeadCount, passportLoanLeadAmout: passportLoanLeadAmout.toString() },
+        newCorrectionPanApplica: {
+          newCorrectionPanApplicationCount,
+          newCorrectionPanApplication: newCorrectionPanApplication.toString(),
+        },
+        shopAct: { shopActLeadCount, shopActLeadAmout: shopActLeadAmout.toString() },
+        udyamCertificateLoan: {
+          udyamCertificateLoanLeadCount,
+          udyamCertificateLoanLeadAmout: udyamCertificateLoanLeadAmout.toString(),
+        },
+        foodLisenceLoan: { foodLisenceLoanLeadCount, foodLisenceLoanLeadAmout: foodLisenceLoanLeadAmout.toString() },
+      },
     });
   } catch (error) {
     return res
