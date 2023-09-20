@@ -27,11 +27,9 @@ const ClientSchema = new mongoose.Schema(
         },
         pan:{
             type: String,
-            required: true
         },
         aadhar:{
             type: Number,
-            required: true
         },
         dob:{
             type: Date,
@@ -39,7 +37,6 @@ const ClientSchema = new mongoose.Schema(
         },
         gst:{
             type: String,
-            required: true
         },
         city:{
             type: String,
@@ -52,6 +49,9 @@ const ClientSchema = new mongoose.Schema(
         zip:{
             type: Number,
             required: true
+        },
+        remark:{
+            type: String,
         },
         empolyeeid:{
             type: mongoose.Schema.ObjectId,
