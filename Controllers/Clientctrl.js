@@ -19,19 +19,16 @@ export const Addclientctrl = async (req, resp) => {
       zip,
       dob,
       gender,
+      remark
     } = req.body;
 
     
 
     if (
       !first_name ||
-      !middlename ||
       !last_name ||
       !email ||
       !phone ||
-      !pan ||
-      !aadhar ||
-      !gst ||
       !city ||
       !state ||
       !zip ||
@@ -84,6 +81,7 @@ export const Addclientctrl = async (req, resp) => {
       zip: zip,
       dob: dob,
       gender: gender,
+      remark: remark,
       empolyeeid: req.user._id,
     });
 
