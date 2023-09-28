@@ -47,6 +47,8 @@ export const Addclientctrl = async (req, resp) => {
       $or: [{ pan: pan }, { aadhar: aadhar }],
     });
 
+    console.log(existingPanOrAdhar);
+
     if (existingEmail) {
       return resp
         .status(422)
