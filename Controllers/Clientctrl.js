@@ -47,7 +47,6 @@ export const Addclientctrl = async (req, resp) => {
       $or: [{ pan: pan }, { aadhar: aadhar }],
     });
 
-    console.log(existingPanOrAdhar);
 
     if (existingEmail) {
       return resp
@@ -62,12 +61,6 @@ export const Addclientctrl = async (req, resp) => {
       });
     }
 
-    if (existingPanOrAdhar) {
-      return resp.status(422).json({
-        status: false,
-        mesage: "Client Adhar or Pan Number Already Exists",
-      });
-    }
 
     const newClient = new Clientmodel({
       first_name: first_name,
